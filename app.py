@@ -22,8 +22,8 @@ except ImportError:
 from rag_pipeline import RAGPipeline
 
 st.set_page_config(
-    page_title="Volvo Car Assistant",
-    page_icon="🚙",
+    page_title="MyCar Guide",
+    page_icon="🚗",
     layout="wide",
     initial_sidebar_state="expanded",
 )
@@ -413,8 +413,8 @@ with st.sidebar:
 # ══════════════════════════════════════════
 st.markdown("""
 <div class="volvo-hero">
-    <div class="hero-eyebrow">Intelligent Automotive Assistant</div>
-    <div class="hero-title">Know Your Car.<br><span>Simply.</span></div>
+    <div class="hero-eyebrow">MyCar Guide</div>
+    <div class="hero-title">Plain Answers<br><span>For Every Driver.</span></div>
     <div class="hero-desc">
         Ask any question about your vehicle — in plain language.
         Powered by AI trained on your official owner's manual,

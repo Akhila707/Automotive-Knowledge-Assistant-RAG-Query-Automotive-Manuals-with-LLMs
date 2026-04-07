@@ -24,26 +24,25 @@ Bot: "According to page 4 of report.pdf: ..."
 ## 🏗️ Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                   INGESTION  (ingest.py)                    │
-│                                                             │
-│  docs/*.pdf  →  PyPDF  →  Text Chunks  →  SentenceTransformers │
-│                                              ↓              │
-│                                     FAISS Index (disk)      │
-└─────────────────────────────────────────────────────────────┘
+
+                  INGESTION  (ingest.py)                    
+  docs/*.pdf  →  PyPDF  →  Text Chunks  →  SentenceTransformers
+                                              ↓              
+                                     FAISS Index (disk)      
+
 
 ┌─────────────────────────────────────────────────────────────┐
 │                   QUERY  (rag_pipeline.py)                  │
 │                                                             │
-│  User Question  →  Embed Query  →  FAISS Search (top-3)    │
+│  User Question  →  Embed Query  →  FAISS Search (top-3)     │
 │                                              ↓              │
-│  Structured Prompt  →  Groq API (LLaMA-3 8B)  →  Answer   │
+│  Structured Prompt  →  Groq API (LLaMA-3 8B)  →  Answer     │
 └─────────────────────────────────────────────────────────────┘
 
 ┌─────────────────────────────────────────────────────────────┐
 │                   UI  (app.py)                              │
 │                                                             │
-│  Streamlit  →  Text Input  →  RAGPipeline.query()          │
+│  Streamlit  →  Text Input  →  RAGPipeline.query()           │
 │                  ↓                                          │
 │     Answer  +  Retrieved Chunks  +  Source Citations        │
 └─────────────────────────────────────────────────────────────┘
